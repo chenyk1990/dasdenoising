@@ -47,12 +47,6 @@ x=1:ngap+n2*2;
 %% set xticks
 xts1=[300,600,960];
 xts2=xts1+ngap+n2;
-% xts3=xts1+ngap*2+nx*2;
-% xts4=xts1+ngap*3+nx*3;
-% xts5=xts1+ngap*4+nx*4;
-% xts6=xts1+ngap*5+nx*5;
-% xts7=xts1+ngap*6+nx*6;
-% xts8=xts1+ngap*7+nx*7;
 xts=[xts1,xts2];
 %% combined figure
 figure('units','normalized','Position',[0.0 0.0 0.5, 1],'color','w');

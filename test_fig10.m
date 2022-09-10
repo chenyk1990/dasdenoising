@@ -57,6 +57,14 @@ d1_somf=d1;
 d2_z2=d1_somf(indt2,indx2);
 comp2=[eq,zeros(n1,ngap),d1_mf,zeros(n1,ngap),eq-d1_mf,zeros(n1,ngap),d1_somf,zeros(n1,ngap),eq-d1_somf]; 
 
+%% set xticks
+xts1=[300,600,960];
+xts2=xts1+ngap+n2;
+xts3=xts1+ngap*2+n2*2;
+xts4=xts1+ngap*3+n2*3;
+xts5=xts1+ngap*4+n2*4;
+xts=[xts1,xts2,xts3,xts4,xts5];
+
 %% combined figure
 figure('units','normalized','Position',[0.0 0.0 0.6, 1],'color','w');
 subplot(2,1,1);das_imagesc(comp1(1:1000,:),98,1,x,t(1:1000));
@@ -83,7 +91,7 @@ annotation(gcf,'arrow',[0.394 0.364],[0.871 0.832],'linewidth',2,'color','r');
 annotation(gcf,'textarrow',[0.377 0.377],[0.761 0.791],'String','Artifacts','linewidth',2,'color','g','fontsize',15,'fontweight','bold');
 annotation(gcf,'arrow',[0.71 0.68],[0.871 0.832],'linewidth',2,'color','r');
 annotation(gcf,'arrow',[0.697 0.697],[0.761 0.791],'linewidth',2,'color','g');
-
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 subplot(2,1,2);das_imagesc(comp2(1:1000,:),98,1,x,t(1:1000));
 ylabel('Time (s)','Fontsize',10,'fontweight','bold');
@@ -109,15 +117,15 @@ annotation(gcf,'arrow',[0.394 0.364],[0.371 0.332],'linewidth',2,'color','r');
 annotation(gcf,'textarrow',[0.307 0.307],[0.281 0.311],'String','Artifacts','linewidth',2,'color','g','fontsize',15,'fontweight','bold');
 annotation(gcf,'arrow',[0.71 0.68],[0.371 0.332],'linewidth',2,'color','r');
 annotation(gcf,'arrow',[0.627 0.627],[0.281 0.311],'linewidth',2,'color','g');
-
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 %% add zooming framebox
 
 a1=axes('Parent',gcf,'Position',[0.287,0.68,0.149,0.15]);
-das_imagesc(d1_z1,5,2);axis off;
+das_imagesc(d1_z1,20,2);axis off;
 
 a1=axes('Parent',gcf,'Position',[0.600,0.68,0.149,0.15]);
-das_imagesc(d1_z2,5,2);axis off;
+das_imagesc(d1_z2,20,2);axis off;
 
 
 a1=axes('Parent',gcf,'Position',[0.287,0.18,0.149,0.15]);

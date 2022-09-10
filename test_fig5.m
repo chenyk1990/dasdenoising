@@ -72,6 +72,17 @@ eq=d1;
 load(strcat('mat_bpsomffk/eq-',num2str(NOs(ii)),'.mat'));
 comp6=[eq,zeros(n1,ngap),d1,zeros(n1,ngap),eq-d1]; 
 
+%% set xticks
+xts1=[300,600,960];
+xts2=xts1+ngap+n2;
+xts3=xts1+ngap*2+n2*2;
+% xts4=xts1+ngap*3+n2*3;
+% xts5=xts1+ngap*4+n2*4;
+% xts6=xts1+ngap*5+n2*5;
+% xts7=xts1+ngap*6+n2*6;
+% xts8=xts1+ngap*7+n2*7;
+xts=[xts1,xts2,xts3];
+
 %% combined figure
 figure('units','normalized','Position',[0.0 0.0 0.5, 1],'color','w');
 subplot(3,2,1);das_imagesc(comp1,95,1,x,t);
@@ -83,6 +94,7 @@ text(n2/2+ngap+n2,-0.05,'Denoised data','color','k','Fontsize',10,'fontweight','
 text(n2/2+ngap*2+n2*2,-0.05,'Noise','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
 text(-200,-0.1,'(a)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
 text(0.1,0.95,labels{1},'color','b','Fontsize',10,'fontweight','bold','HorizontalAlignment','left');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 subplot(3,2,2);das_imagesc(comp2,95,1,x,t);
 ylabel('Time (s)','Fontsize',10,'fontweight','bold');
@@ -93,6 +105,7 @@ text(n2/2+ngap+n2,-0.05,'Denoised data','color','k','Fontsize',10,'fontweight','
 text(n2/2+ngap*2+n2*2,-0.05,'Noise','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
 text(-200,-0.1,'(b)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
 text(0.1,0.95,labels{2},'color','b','Fontsize',10,'fontweight','bold','HorizontalAlignment','left');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 
 subplot(3,2,3);das_imagesc(comp3,95,1,x,t);
@@ -104,6 +117,7 @@ text(n2/2+ngap+n2,-0.05,'Denoised data','color','k','Fontsize',10,'fontweight','
 text(n2/2+ngap*2+n2*2,-0.05,'Noise','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
 text(-200,-0.1,'(c)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
 text(0.1,0.95,labels{3},'color','b','Fontsize',10,'fontweight','bold','HorizontalAlignment','left');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 subplot(3,2,4);das_imagesc(comp4,95,1,x,t);
 ylabel('Time (s)','Fontsize',10,'fontweight','bold');
@@ -114,6 +128,7 @@ text(n2/2+ngap+n2,-0.05,'Denoised data','color','k','Fontsize',10,'fontweight','
 text(n2/2+ngap*2+n2*2,-0.05,'Noise','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
 text(-200,-0.1,'(d)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
 text(0.1,0.95,labels{4},'color','b','Fontsize',10,'fontweight','bold','HorizontalAlignment','left');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 inds1=1:400;
 subplot(3,2,5);das_imagesc(comp5,95,1,x,t);
@@ -130,6 +145,7 @@ annotation(gcf,'textarrow',[0.310 0.289],...
     'String',{'Visible signal'},...
     'LineWidth',2,...
     'FontSize',10,'fontweight','bold');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 subplot(3,2,6);das_imagesc(comp6,95,1,x,t);
 ylabel('Time (s)','Fontsize',10,'fontweight','bold');
@@ -145,6 +161,7 @@ annotation(gcf,'textarrow',[0.740 0.719],...
     'String',{'Visible signal'},...
     'LineWidth',2,...
     'FontSize',10,'fontweight','bold');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
 print(gcf,'-depsc','-r300','fig5.eps');
 

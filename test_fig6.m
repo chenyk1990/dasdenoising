@@ -1,101 +1,98 @@
-% Script to plot Figure 7
+% Script to plot Figure 9
 % BY Yangkang Chen
 % Dec, 23, 2021
 
 clc;clear;close all;
-addpath(genpath('subroutines/'));
 
-%% load data
+NOs=[3,20,10,25,11,2];
+labels={...                                          %P-arrival sample NO from the SEGY file
+    'FORGE\_78-32\_iDASv3-P11\_UTC190423213209.sgy',... %
+    'FORGE\_78-32\_iDASv3-P11\_UTC190426070723.sgy',... %24811
+    'FORGE\_78-32\_iDASv3-P11\_UTC190426062208.sgy',... %26090
+    'FORGE\_78-32\_iDASv3-P11\_UTC190426110008.sgy',... %4921
+    'FORGE\_78-32\_iDASv3-P11\_UTC190426062553.sgy',... %8934
+    'FORGE\_78-32\_iDASv3-P11\_UTC190423182409.sgy'};   %4210
+
 eq=zeros(2000,960);
 [n1,n2]=size(eq);
-ii=3;%reasonable
-if ~ismember(ii,[14,16,17,27,47,52])
-    load(strcat('mat_raw/eq-',num2str(ii),'.mat'));
+t=[0:n1]*0.0005;
+ngap=50;
+x=1:n2*5+4*ngap;
+%% first one
+ii=1;
+if ~ismember(NOs(ii),[14,16,17,27,47,52])
+    load(strcat('mat_raw/eq-',num2str(NOs(ii)),'.mat'));
 end
 eq=d1;
-load(strcat('mat_bpsomffk/eq-',num2str(ii),'.mat'));
-figure;das_imagesc([eq,d1,eq-d1]);
+%% BP
+d1=das_bandpass(d1,0.0005,0,200,6,6,0,0);%
+%% MF
+ns=8;
+d1=das_mf(d1,ns*2+1,1,2);
+%% FK
+d1=d1-das_fk_dip(d1,0.02);%
+d1_mf=d1;
+load(strcat('mat_bpsomffk/eq-',num2str(NOs(ii)),'.mat'));
+d1_somf=d1;
+comp1=[eq,zeros(n1,ngap),d1_mf,zeros(n1,ngap),eq-d1_mf,zeros(n1,ngap),d1_somf,zeros(n1,ngap),eq-d1_somf];
 
-%% pick manually
-xx1=1:n2;
-figure('units','normalized','Position',[0.2 0.4 1, 0.8],'color','w');
-yc_imagesc(d1,99,1,xx1,1:n1);
-load first_picks.mat
-% [x1,y1]=getpts;
-yy1=round(interp1(x1(1:2:end),y1(1:2:end),xx1,'spline'));
-times=yy1;
-
-figure;yc_imagesc(d1,99,1,xx1,1:n1);hold on;plot(x1,y1,'ro');plot(xx1,yy1,'bo');
-
-
-inds=20:20:n2;
-traces=d1(:,inds);
-traces0=eq(:,inds);
-
-dn=traces;
-d0=traces0;
-nsta=30;nlta=80;
-[ O,R ] = das_picker_stalta(dn,nsta, nlta);
-[ O0,R0 ] = das_picker_stalta(d0,nsta, nlta);
-
-times0=[O0-1]*0.0005;
-times=[O-1]*0.0005;
-timest=[yy1(inds)-1]*0.0005; %true
-
-%name
-for ii=1:30
-    stname{ii}=strcat('Channel:',num2str(inds(ii)));
+%% second one
+ii=2;
+if ~ismember(NOs(ii),[14,16,17,27,47,52])
+    load(strcat('mat_raw/eq-',num2str(NOs(ii)),'.mat'));
 end
+eq=d1;
+%% BP
+d1=das_bandpass(d1,0.0005,0,200,6,6,0,0);%
+%% MF
+ns=8;
+d1=das_mf(d1,ns*2+1,1,2);
+%% FK
+d1=d1-das_fk_dip(d1,0.02);%
+d1_mf=d1;
+load(strcat('mat_bpsomffk/eq-',num2str(NOs(ii)),'.mat'));
+d1_somf=d1;
+comp2=[eq,zeros(n1,ngap),d1_mf,zeros(n1,ngap),eq-d1_mf,zeros(n1,ngap),d1_somf,zeros(n1,ngap),eq-d1_somf];
 
-%% begin plotting
-figure('units','normalized','Position',[0.0 0.0 0.45, 1],'color','w');
-nr=15;%number of stations in the first column
-x0=0.1;y0=0.1;dy=0;dx=0;
-%length: 0.5x0.5, 0.5x0.25, 0.25x0.5
-%% axis XY
-dh=(1-0.2)/nr;dw=0.37;
-dh1=dh/2;%axis height
-t=[0:1999]*0.0005;
-for ir=nr:-1:1
-    wav0=traces0(:,ir);
-    wav=traces(:,ir);
-    a1=axes('Parent',gcf,'Position',[x0,y0+dy+dh*(nr-ir),dw,dh1]);
-    plot(t,wav0,'k','linewidth',1.5); hold on; axis off;
-    plot(t,wav,'r','linewidth',1.5);
+%% set xticks
+xts1=[300,600,960];
+xts2=xts1+ngap+n2;
+xts3=xts1+ngap*2+n2*2;
+xts4=xts1+ngap*3+n2*3;
+xts5=xts1+ngap*4+n2*4;
+% xts6=xts1+ngap*5+n2*5;
+% xts7=xts1+ngap*6+n2*6;
+% xts8=xts1+ngap*7+n2*7;
+xts=[xts1,xts2,xts3,xts4,xts5];
 
-    plot([times0(ir),times0(ir)],[min(wav),max(wav)],'g','linewidth',1.5);
-    plot([times(ir),times(ir)],[min(wav),max(wav)],'b','linewidth',1.5);
-    plot([timest(ir),timest(ir)],[min(wav),max(wav)],'m-.','linewidth',1.5);
-    
-    wav0=traces0(:,ir+15);
-    wav=traces(:,ir+15);
-    a1=axes('Parent',gcf,'Position',[x0+0.5,y0+dy+dh*(nr-ir),dw,dh1]);
-    plot(t,wav0,'k','linewidth',1.5);hold on; axis off; 
-    plot(t,wav,'r','linewidth',1.5);
+%% combined figure
+figure('units','normalized','Position',[0.0 0.0 0.6, 1],'color','w');
+subplot(2,1,1);das_imagesc(comp1(1:1000,:),98,1,x,t(1:1000));
+ylabel('Time (s)','Fontsize',10,'fontweight','bold');
+xlabel('Channel','Fontsize',10,'fontweight','bold');
+set(gca,'Linewidth',2,'Fontsize',10,'Fontweight','bold');
+text(n2/2,-0.02,'Raw data','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
+text((n2*2+ngap*3)/2+n2,-0.02,'BP+MF+FK','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
+text((n2*2+ngap*3)/2+n2*3+ngap*2,-0.02,'BP+SOMF+FK','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
+text(-200,-0.02,'(a)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
+text(50,0.46,labels{1},'color','b','Fontsize',10,'fontweight','bold','HorizontalAlignment','left');
 
-    plot([times0(ir+15),times0(ir+15)],[min(wav),max(wav)],'g','linewidth',1.5);
-    plot([times(ir+15),times(ir+15)],[min(wav),max(wav)],'b','linewidth',1.5);
-    plot([timest(ir+15),timest(ir+15)],[min(wav),max(wav)],'m-.','linewidth',1.5);
-end
-legend('Raw waveform','Denoised waveform','Picked arrival from raw data','Picked arrival from denoised data','Ground-truth','Position',[x0+0.1,y0-0.1,0.6,0.1],'NumColumns',5);
-legend('boxoff');
-% 
-%% add station name
-for ir=nr:-1:1
-a1=axes('Parent',gcf,'Position',[0.02,y0+dh*(nr-ir)+dh/4,dw,dh1]);
-text(-0.035,0,stname{ir},'color','k','Fontsize',10,'fontweight','bold');axis off;
+annotation(gcf,'textarrow',[0.446 0.454],[0.822 0.791],'String',{'Stronger signal leakage'},'color','r','Fontsize',15,'linewidth',2,'fontweight','bold','HorizontalAlignment','center');
+annotation(gcf,'textarrow',[0.765 0.773],[0.822 0.791],'String',{'Weaker signal leakage'},'color','r','Fontsize',15,'linewidth',2,'fontweight','bold','HorizontalAlignment','center');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
 
-a1=axes('Parent',gcf,'Position',[0.02+0.5,y0+dh*(nr-ir)+dh/4,dw,dh1]);
-text(-0.035,0,stname{ir+15},'color','k','Fontsize',10,'fontweight','bold');axis off;
-end
-%
-%
-%% add source info
-dw2=(1-x0)/5.0;
-a1=axes('Parent',gcf,'Position',[0,0.93,1,dh1]);
-text(0.5,0,'Earthquake detection of FORGE\_78-32\_iDASv3-P11\_UTC190423213209.sgy','color','k','Fontsize',14,'fontweight','bold','HorizontalAlignment','center');axis off;
+subplot(2,1,2);das_imagesc(comp2(900:1200,:),98,1,x,t(900:1200));
+ylabel('Time (s)','Fontsize',10,'fontweight','bold');
+xlabel('Channel','Fontsize',10,'fontweight','bold');
+set(gca,'Linewidth',2,'Fontsize',10,'Fontweight','bold');
+text(n2/2,0.445,'Raw data','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
+text((n2*2+ngap*3)/2+n2,0.445,'BP+MF+FK','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
+text((n2*2+ngap*3)/2+n2*3+ngap*2,0.445,'BP+SOMF+FK','color','k','Fontsize',10,'fontweight','bold','HorizontalAlignment','center');
+text(-200,0.44,'(b)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
+text(50,0.59,labels{2},'color','b','Fontsize',10,'fontweight','bold','HorizontalAlignment','left');
+
+annotation(gcf,'textarrow',[0.555 0.563],[0.291 0.260],'String',{'Signal leakage'},'color','r','Fontsize',15,'linewidth',2,'fontweight','bold','HorizontalAlignment','center');
+annotation(gcf,'textarrow',[0.870 0.878],[0.291 0.260],'String',{''},'color','r','Fontsize',15,'linewidth',2,'fontweight','bold','HorizontalAlignment','center');
+xticks(xts);set(gca,'xticklabel',{'300','600','960'});
+
 print(gcf,'-depsc','-r300','fig6.eps');
-
-
-
-% 
