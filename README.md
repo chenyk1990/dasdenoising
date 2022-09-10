@@ -47,7 +47,7 @@ Using the latest version
     
 -----------
 ## Gallery
-The gallery figures of the MATdrr package can be found at
+The gallery figures of the dasdenoising package can be found at
     https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/
 Each figure in the gallery directory corresponds to a test_figNO.m script in the "main" directory with the exactly the same file name (figNO.png).
 
@@ -90,3 +90,6 @@ Each figure in the gallery directory corresponds to a test_figNO.m script in the
 10. test_oneevent.m is an example script to run through all processing steps (the three filters) for a specific event. It is used for denoising all the raw waveforms and produce the denoised waveforms. Both raw and denoised waveforms are stored in the repository of https://github.com/chenyk1990/dasdenoising-dataonly. 
 
 11. The difference between the two "similar repositories" dasdenoising and dasdenoising-dataonly is that the latter is only used for storing the data (several GBs) and the former is only used for storing the scripts (less than 1 MB). 
+
+12. All figures (except for fig1, which is a schematic plot) in the dasdenoising paper are in the following directory for a quick look (https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/). 
+
