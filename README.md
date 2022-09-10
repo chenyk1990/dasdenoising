@@ -87,4 +87,6 @@ Each figure in the gallery directory corresponds to a test_figNO.m script in the
 
 9. All datasets used in these DEMO scripts or produced from massive processing based on this package are in a separate repository https://github.com/chenyk1990/dasdenoising-dataonly (for easier downloading). 
 
+10. test_oneevent.m is an example script to run through all processing steps (the three filters) for a specific event. It is used for denoising all the raw waveforms and produce the denoised waveforms. Both raw and denoised waveforms are stored in the repository of https://github.com/chenyk1990/dasdenoising-dataonly. 
 
+11. The difference between the two "similar repositories" dasdenoising and dasdenoising-dataonly is that the latter is only used for storing the data (several GBs) and the former is only used for storing the scripts (less than 1 MB). 
