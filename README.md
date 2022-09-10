@@ -33,6 +33,6 @@ NOTES:
 
 8. The current version is based on Matlab. Future versions will also support Python and be optimized regarding computational efficiency. 
 
-
+9. All datasets used in these DEMO scripts or produced from massive processing based on this package are in a separate repository https://github.com/chenyk1990/dasdenoising-dataonly (for easier downloading). 
 
 
