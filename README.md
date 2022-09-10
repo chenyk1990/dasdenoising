@@ -1,9 +1,9 @@
-**DAS_denoising**
+**DASdenoising**
 ======
 
 ## Description
 
-**DAS_denoising** package is used to store the reproducible and open-access scripts for denoising the FORGE DAS dataset
+**DASdenoising** package is used to store the reproducible and open-access scripts for denoising the FORGE DAS dataset
 
 ## Reference
 If you find this package useful, please do not forget to cite the following paper.
@@ -16,16 +16,16 @@ BibTeX:
 	  title={Denoising of distributed acoustic sensing seismic data using an integrated framework},
 	  author={Yangkang Chen and Alexandros Savvaidis and Sergey Fomel and Yunfeng Chen and Omar M. Saad and Hang Wang and Yapo Abol{\'e} Serge Innocent Obou{\'e} and Liuqing Yang and Wei Chen},
 	  journal={Seismological Research Letters},
-    year=2022,
-    volume=94,
-    issue=1,
-    pages={in press},
-    doi={10.1785/0220220117},
+	  year=2022,
+	  volume=94,
+	  issue=1,
+	  pages={in press},
+	  doi={10.1785/0220220117},
 	}
 
 -----------
 ## Copyright
-    Dasdenoising authors, 2021-present
+    Authors of the dasdenoising paper, 2021-present
 -----------
 
 ## License
@@ -43,13 +43,13 @@ Using the latest version
     
 -----------
 ## Examples
-    The "main" directory contains all runable scripts test_figX.m to reproduce all figures in the paper.
+    The "main" directory contains all runable scripts test_figNO.m to reproduce all figures in the paper.
     
 -----------
 ## Gallery
 The gallery figures of the MATdrr package can be found at
     https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/
-Each figure in the gallery directory corresponds to a test_figX.m script in the "main" directory with the exactly the same file name (figX.png).
+Each figure in the gallery directory corresponds to a test_figNO.m script in the "main" directory with the exactly the same file name (figNO.png).
 
 -----------
 ## Dependence Packages
