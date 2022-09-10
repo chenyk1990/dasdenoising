@@ -60,9 +60,6 @@ xts2=xts1+ngap+n2;
 xts3=xts1+ngap*2+n2*2;
 xts4=xts1+ngap*3+n2*3;
 xts5=xts1+ngap*4+n2*4;
-% xts6=xts1+ngap*5+n2*5;
-% xts7=xts1+ngap*6+n2*6;
-% xts8=xts1+ngap*7+n2*7;
 xts=[xts1,xts2,xts3,xts4,xts5];
 
 %% combined figure
