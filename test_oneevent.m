@@ -6,6 +6,13 @@ addpath(genpath('subroutines/'));
 
 eq=zeros(2000,960);
 [n1,n2]=size(eq);
+
+
+%% NOTE: change "ii=3" to "ii=1:82" for processing all 82 EQ events
+% change "mat_raw/eq-" to "mat_raw/mic-" for processing all 112 microseismic events
+% the parameters can be the same for all datasets in the "mat_raw" directory
+% all datasets in mat_raw can be downloaded from https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/mat_raw
+% One can use svn co https://github.com/chenyk1990/dasdenoising-dataonly/trunk/mat_raw ./ to download the whole directory or using a similar command based on "git"
 for ii=3
     if ~ismember(ii,[14,16,17,27,47,52])
         strcat('mat_raw/eq-',num2str(ii),'.mat')
