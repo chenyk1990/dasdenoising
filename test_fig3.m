@@ -1,9 +1,10 @@
-% Script to plot Figure 4
+% Script to plot Figure 3
 % BY Yangkang Chen
 % Dec, 21, 2021
 % This script takes about 5-10 minutes
 clc;clear;close all;
 %please download seistr package from https://github.com/chenyk1990/seistr
+%please create a directory of mat_raw and download any datasets into the mat_raw from https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/mat_raw
 addpath(genpath('seistr/'));
 addpath(genpath('subroutines/'));
 
@@ -22,11 +23,12 @@ for ii=3
     d_bp=d1;
     
     %% SOMF
-%     [pp]=str_dip2d(d1,2,10,2,0.01, 1, 0.000001,[50,50,1],1);%figure;das_imagesc(pp);colormap(jet);
+    [pp]=str_dip2d(d1,2,10,2,0.01, 1, 0.000001,[50,50,1],1);%figure;das_imagesc(pp);colormap(jet);
     ns=8;order=2;eps=0.01;
-%     d1=das_pwsmooth_lop_mf(d1,pp,ns,order,eps,0);%SOMF
+    d1=das_pwsmooth_lop_mf(d1,pp,ns,order,eps,0);%SOMF
     d_bpsomf=d1;
-    load(strcat('mat_bpsomffk/eq-',num2str(ii),'.mat'));
+%     load(strcat('mat_bpsomffk/eq-',num2str(ii),'.mat'));% if you do not want to rerun, uncoment this line and comment the two lines above about "str_dip2d" and "das_pwsmooth_lop_mf"
+    
     %% FK
     d1=d1-das_fk_dip(d1,0.02);%
     d_bpsomffk=d1;
