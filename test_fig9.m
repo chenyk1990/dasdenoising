@@ -204,7 +204,7 @@ tl=sprintf('BP+SOMF+FK (Error=%.3f s)',e3);
 title(tl,'Fontsize',10,'fontweight','bold');
 text(-60,-0.02,'(d)','color','k','Fontsize',15,'fontweight','bold','HorizontalAlignment','center');
 
-legend('Ground-truth','Picked arrival from raw data','Picked arrival from BPSOMFFK','Picked arrival from BP','Picked arrival from BPSOMF','Position',[0.1,0.1,0.6,0.1],'NumColumns',3);
+legend('Ground-truth','Picked arrival from raw data','Picked arrival from BP+SOMF+FK','Picked arrival from BP','Picked arrival from BP+SOMF','Position',[0.1,0.1,0.6,0.1],'NumColumns',3);
 legend('boxoff');
 
 
