@@ -94,6 +94,7 @@ The gallery figures of the dasdenoising package can be found at
 Each figure in the gallery directory corresponds to a test_figNO.m script in the "main" directory with the exactly the same file name (figNO.png).
 
 These gallery figures are also presented below. 
+
 Figure 2
 <img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig2.png' alt='Slicing' width=960/>
 
