@@ -44,13 +44,7 @@ Using the latest version
 -----------
 ## Examples
     The "main" directory contains all runable scripts test_figNO.m to reproduce all figures in the paper.
-    
------------
-## Gallery
-The gallery figures of the dasdenoising package can be found at
-    https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/
-Each figure in the gallery directory corresponds to a test_figNO.m script in the "main" directory with the exactly the same file name (figNO.png).
-
+ 
 -----------
 ## Dependence Packages
 * Matlab 2015 and later versions
@@ -92,4 +86,38 @@ Each figure in the gallery directory corresponds to a test_figNO.m script in the
 11. The difference between the two "similar repositories" dasdenoising and dasdenoising-dataonly is that the latter is only used for storing the data (several GBs) and the former is only used for storing the scripts (less than 1 MB). 
 
 12. All figures (except for fig1, which is a schematic plot) in the dasdenoising paper are in the following directory for a quick look (https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/). 
+
+-----------
+## Gallery
+The gallery figures of the dasdenoising package can be found at
+    https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/
+Each figure in the gallery directory corresponds to a test_figNO.m script in the "main" directory with the exactly the same file name (figNO.png).
+
+These gallery figures are also presented below. 
+Figure 2
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig2.png' alt='Slicing' width=960/>
+
+Figure 3
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig3.png' alt='Slicing' width=960/>
+
+Figure 4
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig4.png' alt='Slicing' width=960/>
+
+Figure 5
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig5.png' alt='Slicing' width=960/>
+
+Figure 6
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig6.png' alt='Slicing' width=960/>
+
+Figure 7
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig7.png' alt='Slicing' width=960/>
+
+Figure 8
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig8.png' alt='Slicing' width=960/>
+
+Figure 9
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig9.png' alt='Slicing' width=960/>
+
+Figure 10
+<img src='https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/gallery/fig10.png' alt='Slicing' width=960/>
 
