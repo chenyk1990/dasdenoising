@@ -59,6 +59,11 @@ Using the latest version
     Regarding any questions, bugs, developments, collaborations, please contact  
     Yangkang Chen
     chenyk2016@gmail.com
+ 
+-----------
+## Python-version
+    The python-version and a much accelerated (with C implementation and is hundreds of times faster) python-version functions are included in the pyseistr package (https://github.com/aaspip/pyseistr). An example can be found at https://github.com/aaspip/pyseistr/blob/main/demos/test_pyseistr_das.py 
+Please follow the python package for future developments. 
 
 -----------
 ## NOTES:
@@ -86,6 +91,8 @@ Using the latest version
 11. The difference between the two "similar repositories" dasdenoising and dasdenoising-dataonly is that the latter is only used for storing the data (several GBs) and the former is only used for storing the scripts (less than 1 MB). 
 
 12. All figures (except for fig1, which is a schematic plot) in the dasdenoising paper are in the following directory for a quick look (https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/). 
+
+13. The python-version and accelerated (C-implementation) python-version functions are included in the pyseistr package (https://github.com/aaspip/pyseistr). An example can be found at https://github.com/aaspip/pyseistr/blob/main/demos/test_pyseistr_das.py . The Matlab version remains as an educational tool but will not be further developed in the future. Please just follow the latest python package (pyseistr). 
 
 -----------
 ## Gallery
