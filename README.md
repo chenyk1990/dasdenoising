@@ -8,18 +8,18 @@
 ## Reference
 If you find this package useful, please do not forget to cite the following paper. The PDF of the paper can be found at https://github.com/chenyk1990/dasdenoising-dataonly/blob/main/reference.
 
-    Chen, Y., Savvaidis, A., Fomel, S., Chen, Y., Saad, O.M., Wang, H., Oboue, Y.A.S.I., Yang, L., & Chen, W. (2022). Denoising of distributed acoustic sensing seismic data using an integrated framework, Seismological Research Letters, 94(1), doi: 10.1785/0220220117.
+    Chen, Y., Savvaidis, A., Fomel, S., Chen, Y., Saad, O.M., Wang, H., Oboue, Y.A.S.I., Yang, L., & Chen, W. (2022). Denoising of distributed acoustic sensing seismic data using an integrated framework, Seismological Research Letters, 94(1), 457–472, doi: 10.1785/0220220117.
     
 BibTeX:
 	
-	@article{dasdenoising2022,
+	@article{dasdenoising2023,
 	  title={Denoising of distributed acoustic sensing seismic data using an integrated framework},
 	  author={Yangkang Chen and Alexandros Savvaidis and Sergey Fomel and Yunfeng Chen and Omar M. Saad and Hang Wang and Yapo Abol{\'e} Serge Innocent Obou{\'e} and Liuqing Yang and Wei Chen},
 	  journal={Seismological Research Letters},
-	  year=2022,
+	  year=2023,
 	  volume=94,
 	  issue=1,
-	  pages={in press},
+	  pages={457–472},
 	  doi={10.1785/0220220117},
 	}
 
