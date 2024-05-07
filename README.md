@@ -5,7 +5,6 @@
 
 **DASdenoising** package is used to store the reproducible and open-access scripts for denoising the FORGE DAS dataset
 
------------
 ## Python-version
 The python-version and a much accelerated (with C implementation and is hundreds of times faster) python-version functions are included in the pyseistr package (https://github.com/aaspip/pyseistr). An example can be found at https://github.com/aaspip/pyseistr/blob/main/demos/test_pyseistr_das.py Please follow the python package for future developments. 
 
