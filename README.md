@@ -90,7 +90,9 @@ Using the latest version
 
 12. All figures (except for fig1, which is a schematic plot) in the dasdenoising paper are in the following directory for a quick look (https://github.com/chenyk1990/dasdenoising-dataonly/tree/main/gallery/). 
 
-13. The python-version and accelerated (C-implementation) python-version functions are included in the pyseistr package (https://github.com/aaspip/pyseistr). An example can be found at https://github.com/aaspip/pyseistr/blob/main/demos/test_pyseistr_das.py . The Matlab version remains as an educational tool but will not be further developed in the future. Please just follow the latest python package (pyseistr). 
+13. The python-version and accelerated (C-implementation) python-version functions are included in the pyseistr package (https://github.com/aaspip/pyseistr). An example can be found at https://github.com/aaspip/pyseistr/blob/main/demos/test_pyseistr_das.py . The Matlab version remains as an educational tool but will not be further developed in the future. Please just follow the latest python package (pyseistr).
+
+14. The zip format of [this data repository](https://github.com/chenyk1990/dasdenoising-dataonly) up to  02/04/2025 can be downloaded from https://utexas.box.com/s/2ps9s6vaeirwbzb70gvxizrp35zy8nqt
 
 -----------
 ## Gallery
